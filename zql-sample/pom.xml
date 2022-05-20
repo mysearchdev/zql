@@ -7,9 +7,9 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.gibello</groupId>
+  <groupId>dev.mysearch</groupId>
   <artifactId>zql-sample</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Zql java SQL parser :: Sample code</name>
 
   <properties>
@@ -33,7 +33,7 @@
     <dependency>
       <groupId>org.gibello</groupId>
       <artifactId>zql-parser</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
   </dependencies>
 
