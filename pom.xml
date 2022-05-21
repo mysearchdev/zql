@@ -2,24 +2,123 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>dev.mysearch</groupId>
-  <artifactId>zql-parent</artifactId>
-  <version>1.0.0</version>
-  <name>Zql java SQL parser :: Parent</name>
-  <packaging>pom</packaging>
+	<groupId>dev.mysearch</groupId>
+	<artifactId>zql-parent</artifactId>
+	<version>1.0.0</version>
+	<name>Zql java SQL parser :: Parent</name>
+	<description>Zql is a java SQL parser</description>
+	<url>https://github.com/mysearchdev/zql</url>
+	<packaging>pom</packaging>
 
-  <modules>
-    <module>zql-parser</module>
-    <module>zql-sample</module>
-  </modules>
+	<modules>
+		<module>zql-parser</module>
+		<module>zql-sample</module>
+	</modules>
 
-  <scm>
-    <connection>scm:git:git@github.com:mysearchdev/zql.git</connection>
-    <developerConnection>scm:git:git@github.com:mysearchdev/zql.git</developerConnection>
-    <url>https://github.com/mysearchdev/zql</url>
-    <tag>HEAD</tag>
-  </scm>
+	<scm>
+		<connection>scm:git:git@github.com:mysearchdev/zql.git</connection>
+		<developerConnection>scm:git:git@github.com:mysearchdev/zql.git</developerConnection>
+		<url>https://github.com/mysearchdev/zql</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<email>zql@mysearch.dev</email>
+			<organization>MySearch</organization>
+			<organizationUrl>https://github.com/mysearchdev</organizationUrl>
+		</developer>
+	</developers>
+
+<!--
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+	-->
+
+	<profiles>
+		<profile>
+			<id>release</id>
+
+			<build>
+				<plugins>
+
+					<!-- Attach source jars -->
+					<plugin>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>3.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-source</id>
+								<phase>compile</phase>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- Attach javadocs jar -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>3.4.0</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>3.0.1</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.13</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
 
 </project>
