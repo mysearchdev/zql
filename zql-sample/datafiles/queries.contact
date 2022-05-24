@@ -1,3 +1,0 @@
-select * from contact;
-select email from contact where lastname='Gibello';
-exit;
