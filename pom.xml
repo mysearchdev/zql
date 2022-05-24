@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dev.mysearch</groupId>
-	<artifactId>zql-parent</artifactId>
+	<artifactId>dev.mysearch.zql</artifactId>
 	<version>1.0.0</version>
-	<name>Zql java SQL parser :: Parent</name>
-	<description>Zql is a java SQL parser</description>
-	<url>https://github.com/mysearchdev/zql</url>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>zql-parser</module>
-		<module>zql-sample</module>
+		<module>dev.mysearch.zql.parser</module>
+		<module>dev.mysearch.zql.sample</module>
 	</modules>
 
-	<scm>
-		<connection>scm:git:git@github.com:mysearchdev/zql.git</connection>
-		<developerConnection>scm:git:git@github.com:mysearchdev/zql.git</developerConnection>
-		<url>https://github.com/mysearchdev/zql</url>
-		<tag>HEAD</tag>
-	</scm>
+	<name>Zql java SQL parser :: Parent</name>
+	<description>Zql is a java SQL parser</description>
+	<url>https://github.com/mysearchdev/zql</url>
 
 	<licenses>
 		<license>
@@ -39,7 +35,13 @@
 		</developer>
 	</developers>
 
-<!--
+	<scm>
+		<connection>scm:git:git@github.com/mysearchdev/zql.git</connection>
+		<developerConnection>scm:git:git@github.com:mysearchdev/zql.git</developerConnection>
+		<url>https://github.com/mysearchdev/zql/tree/master</url>
+	</scm>
+
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -50,7 +52,10 @@
 			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-	-->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<profiles>
 		<profile>
